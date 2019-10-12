@@ -6,10 +6,13 @@ image: node:latest
 variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID 
   AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+
+before_script:
+  - npm install
 #This declares the pipeline stages  
 stages:
-  - build
   - test
+  - build
   - deploy
 cache:
   paths:
@@ -17,13 +20,12 @@ cache:
 build:
   stage: build
   script:
-    - npm install
     - npm run-script build
 test:
   stage: test
   script:
     - echo "Running react test suite......"
-deploy:
+deployToAWS:
   stage: deploy
   script:
     - npm run-script deploy
