@@ -25,4 +25,4 @@ deploy:
   stage: deploy
   script:
     - pip install awscli
-    - npm run-script deploy
+    - aws s3 cp ./build/ s3://order-manager-mc --recursive --include "*"
