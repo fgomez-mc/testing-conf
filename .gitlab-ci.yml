@@ -8,15 +8,10 @@ before_script:
   - npm install
 stages:
   - test
-  - build
   - deploy
 cache:
   paths:
   - node_modules/
-build:
-  stage: build
-  script:
-    - npm run-script build
 test:
   stage: test
   script:
@@ -25,4 +20,5 @@ deploy:
   stage: deploy
   script:
     - pip install awscli
+    - npm run-script build
     - aws s3 cp ./build/ s3://order-manager-mc --recursive --include "*"
