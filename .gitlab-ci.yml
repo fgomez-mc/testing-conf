@@ -3,15 +3,23 @@ image: nikolaik/python-nodejs:latest
 variables:
   AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID 
   AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-
+artifacts:
+    paths:
+    - ./build
 before_script:
   - npm install
 stages:
   - test
+  - build
   - deploy
 cache:
   paths:
   - node_modules/
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run-script build
 test:
   stage: test
   script:
