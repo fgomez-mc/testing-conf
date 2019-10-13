@@ -19,7 +19,7 @@ build:
     - npm run-script build
   artifacts:
     paths:
-    - ./build
+    - build
 test:
   stage: test
   script:
