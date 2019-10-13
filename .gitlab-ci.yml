@@ -16,11 +16,6 @@ test:
     - yarn test
 build:
   stage: build
-  artifacts:
-    paths:
-      - ./build
-    when:
-      - on_success
   script:
     - yarn build
 deploy:
