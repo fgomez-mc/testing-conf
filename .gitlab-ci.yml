@@ -5,7 +5,7 @@ variables:
   AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
 artifacts:
     paths:
-    - ./build
+    - build
 before_script:
   - npm install
 stages:
