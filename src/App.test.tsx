@@ -1,10 +1,8 @@
-import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import "./helpers/test-helper";
 import React from "react";
 import { mount } from "enzyme";
 import App from "./App";
-
-configure({ adapter: new Adapter() });
+import Orders from "./Pages/Orders";
 
 describe("App", () => {
   const wrapper = mount(<App />);
@@ -14,6 +12,6 @@ describe("App", () => {
     expect(wrapper.find("h1").text()).toBe("Order Manager");
   });
   it("should contain the render panel", () => {
-    expect(wrapper.find(".OrderPanel")).toHaveLength(1);
+    expect(wrapper.find(Orders)).toHaveLength(1);
   });
 });
