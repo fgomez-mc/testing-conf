@@ -13,7 +13,7 @@ test:
   stage: test
   script:
     - yarn
-    - yarn start & test
+    - yarn run test-ci
 build:
   stage: build
   script:
