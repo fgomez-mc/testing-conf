@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <h1>Order Manager</h1>
+        <h1 className="Title">Order Manager</h1>
         <Orders orders={testOrders} />
       </div>
     </Router>
