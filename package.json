@@ -21,8 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "test-ci": "start-server-and-test start http://localhost:3000 test"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,7 +46,6 @@
     "geckodriver": "^1.18.0",
     "install": "^0.13.0",
     "npm": "^6.12.0",
-    "selenium-webdriver": "^3.6.0",
-    "start-server-and-test": "^1.10.6"
+    "selenium-webdriver": "^3.6.0"
   }
 }
