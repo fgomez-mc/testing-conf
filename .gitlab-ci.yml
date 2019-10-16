@@ -13,8 +13,10 @@ stages:
   - deploy
 test:
   stage: test
+  services:
+    - selenium/standalone-chrome
   script:
-    - npm run test
+    - npm run test --host=selenium/standalone-chrome
 build:
   stage: build
   script:
