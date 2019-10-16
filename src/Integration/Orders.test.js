@@ -3,19 +3,8 @@ import "selenium-webdriver/chrome";
 import "chromedriver";
 import webdriver from "selenium-webdriver";
 
-const rootURL = "http://localhost:3000";
+const rootURL = "https://jsonplaceholder.typicode.com/";
 let driver;
-
-const chromeCapabilities = webdriver.Capabilities.chrome();
-chromeCapabilities.set("chromeOptions", {
-  args: ["--headless", "--disable-gpu"]
-});
-
-const getElementById = async (driver, id, timeout = 2000) => {
-  const el = await driver.wait(until.elementLocated(By.id(id)), timeout);
-  return await driver.wait(until.elementIsVisible(el), timeout);
-};
-
 const getElemntByClassName = async (driver, className, timeout = 2000) => {
   const el = await driver.wait(
     until.elementLocated(By.className(className)),
@@ -25,30 +14,23 @@ const getElemntByClassName = async (driver, className, timeout = 2000) => {
 };
 
 beforeEach(done => {
+  const chromeCapabilities = webdriver.Capabilities.chrome();
+  chromeCapabilities.set("chromeOptions", {
+    args: ["--headless", "--disable-gpu"]
+  });
   driver = new Builder()
-    .withCapabilities(chromeCapabilities)
     .forBrowser("chrome")
+    .withCapabilities(chromeCapabilities)
     .build();
   driver.get(rootURL).then(done);
 });
+
 afterEach(done => {
   driver.quit().then(done);
 });
 
-it("initialises the context", async () => {
-  await driver
-    .manage()
-    .window()
-    .setPosition(0, 0);
-  await driver
-    .manage()
-    .window()
-    .setSize(1280, 1024);
-  await driver.get(rootURL);
-});
-
-it("should click on navbar button to display a drawer", async () => {
-  const el = await getElemntByClassName(driver, "Title");
+it("find the text", async () => {
+  const el = await getElemntByClassName(driver, "subtitle");
   const text = await el.getText();
-  expect(text).toEqual("Order Manager");
+  expect(/fake/gi.test(text)).toBeTruthy();
 });

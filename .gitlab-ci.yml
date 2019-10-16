@@ -6,19 +6,15 @@ cache:
   paths:
     - node_modules/
 before_script:
-  - npm i -g pm2
   - npm i
-  - pm2 start npm -- start 
 stages:
   - test
   - build
   - deploy
 test:
   stage: test
-  services:
-    - selenium/standalone-chrome
   script:
-    - npm run test --host=selenium__standalone-chrome
+    - npm run test
 build:
   stage: build
   script:
