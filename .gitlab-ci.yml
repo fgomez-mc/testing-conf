@@ -7,7 +7,7 @@ cache:
     - node_modules/
 before_script:
   - npm i
-  - apt install default-jre
+  - apt-get install default-jre
   - pip install awscli
 stages:
   - test
