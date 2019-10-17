@@ -10,17 +10,12 @@ jobs:
       - run: echo "installed completed"
       - store_artifacts:
         path: node_modules/
-  npm-start:
+  npm-install:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      - run: echo "starting server"
-      - run: npm i -g wait-on 
-      - run:
-        command: npm start wait-on http://localhost:3000
-        background: true
-      - run: echo "server started"
+      - run: echo "starting npm server"
 workflows:
   version: 2
   production:
