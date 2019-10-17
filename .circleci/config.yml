@@ -1,8 +1,17 @@
 version: 2
 jobs:
-  build:
+  npm-install:
     docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "Hello, world"
+      image:
+        - circleci/node:latest
+      steps:
+        - checkout
+        - run: echo "installing npm"
+        - run: npm i
+        - run: echo "installed completed"
+
+workflows:
+  version: 2
+  production:
+    jobs:
+      - npm-install
