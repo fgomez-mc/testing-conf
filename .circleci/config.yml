@@ -10,7 +10,7 @@ jobs:
       - run: echo "installed completed"
       - store_artifacts:
         path: node_modules/
-  npm-install:
+  npm-start:
     docker:
       - image: circleci/node:latest
     steps:
