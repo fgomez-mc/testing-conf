@@ -9,8 +9,6 @@ jobs:
       - run: npm i
       - run: npm i -g wait-on
       - run: echo "installed completed"
-      - store_artifacts:
-        path: node_modules/
       - run: echo "starting npm server"
       - run: npm start wait-on http://localhost:3000
 workflows:
