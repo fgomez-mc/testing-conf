@@ -11,8 +11,8 @@ jobs:
       - run: echo "installed completed"
       - run: echo "starting npm server"
       - run: 
-        command: npm start wait-on http://localhost:3000
-        background: true
+          command: npm start wait-on http://localhost:3000
+          background: true
 workflows:
   version: 2
   production:
