@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: echo "installing npm"
       - run: npm i
-      - run: npm i -g wait-on
+      - run: sudo npm i -g wait-on
       - run: echo "installed completed"
       - run: echo "starting npm server"
       - run: npm start wait-on http://localhost:3000
