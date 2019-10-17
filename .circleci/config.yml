@@ -8,8 +8,18 @@ jobs:
       - run: echo "installing npm"
       - run: npm i
       - run: echo "installed completed"
+  npm-start:
+    steps:
+      - checkout
+      - run: echo "starting server"
+      - run: npm i -g wait-on 
+      - run:
+        command: npm start wait-on http://localhost:3000
+        background: true
+      - run: echo "server started"
 workflows:
   version: 2
   production:
     jobs:
       - npm-install
+      - npm-start 
