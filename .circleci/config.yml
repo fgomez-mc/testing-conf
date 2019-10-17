@@ -8,7 +8,11 @@ jobs:
       - run: echo "installing npm"
       - run: npm i
       - run: echo "installed completed"
+      - store_artifacts:
+        path: node_modules/
   npm-start:
+    docker:
+      - image: circleci/node:latest
     steps:
       - checkout
       - run: echo "starting server"
