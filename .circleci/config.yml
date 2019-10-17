@@ -16,6 +16,12 @@ jobs:
     steps:
       - checkout
       - run: echo "starting npm server"
+      - run: npm i -g wait-on
+      - run: 
+        command: npm start wait-on http://localhost:3000
+        background: true
+      - run: echo "server started"
+
 workflows:
   version: 2
   production:
