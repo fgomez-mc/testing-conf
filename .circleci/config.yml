@@ -15,15 +15,8 @@ jobs:
           background: true
       - cache:
         path: node_modules
-  npm-test:
-    docker:
-      - image: selenium/standalone-chrome
-    steps:
-      - checkout 
-      - run: echo "init testing 2"
 workflows:
   version: 2
   production:
     jobs:
       - npm-install
-      - npm-test
