@@ -17,10 +17,10 @@ jobs:
         path: node_modules
   npm-test:
     docker:
-      - image: selenium/standalone-chrome:latest
-      steps:
-        - checkout 
-        - run: echo "init testing"
+      - image: selenium/standalone-chrome
+    steps:
+      - checkout 
+      - run: echo "init testing"
 workflows:
   version: 2
   production:
