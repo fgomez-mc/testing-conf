@@ -20,7 +20,7 @@ jobs:
       - image: selenium/standalone-chrome
     steps:
       - checkout 
-      - run: echo "init testing"
+      - run: echo "init testing 2"
 workflows:
   version: 2
   production:
