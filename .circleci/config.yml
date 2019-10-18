@@ -13,8 +13,14 @@ jobs:
       - run: 
           command: npm start
           background: true
+      - cache:
+        path: node_modules
+  npm-test:
+    docker:
+      - image: selenium/standalone-chrome:latest
 workflows:
   version: 2
   production:
     jobs:
       - npm-install
+      - npm-test
